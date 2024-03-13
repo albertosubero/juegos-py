@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { GameModel } from '../../models/games';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-games-carousel',
   standalone: true,
-  imports: [CommonModule, CarouselModule],
+  imports: [CommonModule, RouterModule, CarouselModule],
   templateUrl: './games-carousel.component.html',
   styleUrl: './games-carousel.component.scss'
 })
