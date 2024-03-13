@@ -17,3 +17,7 @@ export interface GameModel {
   Tag: string[],
   Bundle: []
 }
+
+export interface SearchParams {
+  collection: number
+}

@@ -13,14 +13,25 @@ import { GameModel } from '../../shared/models/games';
 })
 export class HomeViewComponent {
   newGames: GameModel[] = []
+  hotGames: GameModel[] = []
+
   constructor(private gamesService: GamesService) {}
 
   ngOnInit() { 
-    this.gamesService.findGamesByFilters()
+    this.gamesService.findGamesByFilters({collection: 4})
     .subscribe({
       next: (res) => {
         this.newGames = res;
-        console.log("🚀 ~ HomeViewComponent ~ ngOnInit ~ res:", res)
+      },
+      error: (err) => {
+        console.error(err.error);
+      }
+    });
+
+    this.gamesService.findGamesByFilters({collection: 3})
+    .subscribe({
+      next: (res) => {
+        this.hotGames = res;
       },
       error: (err) => {
         console.error(err.error);
