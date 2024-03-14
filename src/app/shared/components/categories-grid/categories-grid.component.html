@@ -1,10 +1,16 @@
+<h1 class="display-6 pb-3 mb-3 border-bottom text-uppercase">
+  Categorías
+  @if (categoriesLimit < categories.length) {
+    <button type="button" class="btn btn-primary text-uppercase ms-3 px-3" (click)="categoriesLimit = categories.length">Ver Todas</button>
+  }
+</h1>
 <div class="categories-wrapper mt-4">
   <div class="row">
-    @for (category of categories; track $index) {
+    @for (category of categories.slice(0, categoriesLimit); track $index) {
       <div class="col-12 col-sm-6 col-md-4">
         <div class="category-box" [routerLink]="['/category/', category.value]">
           {{ category.name  }}
-          <i class="bi bi-arrow-right-circle-fill"></i>
+          <i class="bi bi-arrow-right-square-fill"></i>
         </div>
       </div>
     }

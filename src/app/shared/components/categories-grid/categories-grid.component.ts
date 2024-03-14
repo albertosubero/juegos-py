@@ -11,4 +11,5 @@ import { CategoryInterface, categories } from './helpers/categories';
 })
 export class CategoriesGridComponent {
   categories: CategoryInterface[] = categories
+  categoriesLimit: number = 12
 }
