@@ -18,7 +18,7 @@ export class HomeViewComponent {
   constructor(private gamesService: GamesService) {}
 
   ngOnInit() { 
-    this.gamesService.findGamesByFilters({collection: 4})
+    this.gamesService.findGamesByFilters({collection: '4'})
     .subscribe({
       next: (res) => {
         this.newGames = res;
@@ -28,7 +28,7 @@ export class HomeViewComponent {
       }
     });
 
-    this.gamesService.findGamesByFilters({collection: 3})
+    this.gamesService.findGamesByFilters({collection: '3'})
     .subscribe({
       next: (res) => {
         this.hotGames = res;
