@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  &.dark {
+    background-color: #0b0d1c;
+    * {
+      color: #ffffff;
+    }
+  }
+}
 section {
   padding: 4rem 0;  
 }
@@ -18,10 +26,42 @@ section {
 }
 
 .display-6 {
-  font-size: 2rem
+  font-size: 1.5rem;
+  font-weight: 400;
+  background: linear-gradient(124deg, #b43ce4, #e600ac, #c200b6, #12295f, #f8b0ff, #ffffff, #7000a5, #dd00f3, #dd00f3);
+  background-size: 1800% 1800%;
+  -webkit-animation: rainbow 18s ease infinite;
+  -z-animation: rainbow 18s ease infinite;
+  -o-animation: rainbow 18s ease infinite;
+    animation: rainbow 18s ease infinite;
+  color: white;
+  padding: 15px;
+  border: none;
+  box-shadow: inset 0 -0.25rem 0 rgba(0, 0, 0, 0.15);
 }
 
 .btn {
   -webkit-box-shadow: inset 0 -0.25rem 0 rgb(0 0 0/15%);
   box-shadow: inset 0 -0.25rem 0 rgb(0 0 0/15%);
+}
+
+@-webkit-keyframes rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
 }
