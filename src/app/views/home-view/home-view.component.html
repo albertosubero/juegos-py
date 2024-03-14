@@ -8,5 +8,12 @@
       <h1 class="display-6 pb-3 mb-3 border-bottom text-uppercase">Juegos Nuevos</h1>
       <app-games-carousel [games]="newGames" [items]="6" />
     </div>
+    <div class="games-row">
+      <h1 class="display-6 pb-3 mb-3 border-bottom text-uppercase">
+        Categorías
+        <button type="button" class="btn btn-primary text-uppercase ms-3 px-3">Ver Todas</button>
+      </h1>
+      <app-categories-grid />
+    </div>
   </section>
 </div>

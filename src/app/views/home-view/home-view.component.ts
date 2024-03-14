@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { GamesService } from '../../shared/services/games.service';
 import { GamesCarouselComponent } from '../../shared/components/games-carousel/games-carousel.component';
 import { GameModel } from '../../shared/models/games';
+import { CategoriesGridComponent } from '../../shared/components/categories-grid/categories-grid.component';
 
 @Component({
   selector: 'app-home-view',
   standalone: true,
-  imports: [GamesCarouselComponent],
+  imports: [GamesCarouselComponent, CategoriesGridComponent],
   providers: [GamesService],
   templateUrl: './home-view.component.html',
   styleUrl: './home-view.component.scss'

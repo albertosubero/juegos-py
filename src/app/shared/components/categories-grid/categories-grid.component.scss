@@ -1,0 +1,20 @@
+.category-box {
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 6px;
+  align-items: center;
+  background: #d8e3e863;
+  border-radius: 10px;
+  display: inline-flex;
+  height: 50px;
+  padding: 12px 15px;
+  transition: all .2s;
+  width: 100%;
+  margin-bottom: 20px;
+  i {
+    color: #ff622d;
+    font-size: 1.5rem;
+    margin-left: auto;
+  }
+}
