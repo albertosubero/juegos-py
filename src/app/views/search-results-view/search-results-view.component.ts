@@ -14,7 +14,9 @@ import { CommonModule } from '@angular/common';
 export class SearchResultsViewComponent {
   games: GameModel[] = []
   keyword: string = ''
+  page: number = 1
   isLoading: boolean = false
+  haveMoreGames: boolean = false
 
   constructor(private route: ActivatedRoute, private router: Router, private gamesService: GamesService) {
     this.keyword = this.route.snapshot.params['keyword']
@@ -33,12 +35,24 @@ export class SearchResultsViewComponent {
     this.getGamesByKeyword()
   }
 
-  getGamesByKeyword() {
+  getGamesByKeyword(page: number = 1) {    
+    this.page = page
     this.isLoading = true
-    this.gamesService.findGamesByFilters({tags: this.keyword, amount: 40})
+
+    this.gamesService.findGamesByFilters({tags: this.keyword, amount: 24, page})
     .subscribe({
       next: (res) => {
-        this.games = res
+        if (this.games.length > 0) {
+          if (res.length == 0) {
+            this.haveMoreGames = false
+          } else {
+            this.games = this.games.concat(res)
+            this.haveMoreGames = true
+          }     
+        } else {
+          this.games = res
+          this.haveMoreGames = true
+        }
         this.isLoading = false
       },
       error: (err) => {
