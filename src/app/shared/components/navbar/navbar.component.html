@@ -3,7 +3,7 @@
     <a href="/" class="navbar-brand text-uppercase">
       <img src="assets/images/logo-juegos-py.png" width="300px" alt="juegos.com.py">
     </a>
-    <div class="d-flex position-absolute end-0">
+    <div class="search-input-wrapper d-flex position-absolute end-0">
       <input #searchInput class="form-control me-2" type="search" placeholder="Buscar Juego" aria-label="Buscar Juego" (keydown.enter)="searchGameByTag(searchInput.value)">
       <button type="button" class="btn btn-primary text-uppercase" (click)="searchGameByTag(searchInput.value)">
         <i class="bi bi-search"></i>
