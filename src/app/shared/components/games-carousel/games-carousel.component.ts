@@ -15,7 +15,8 @@ export class GamesCarouselComponent {
   @Input() games: GameModel[] = []
   @Input() items: number = 4
   @Input() autoplay: boolean = false
-
+  @Input() isLoading: boolean = false
+  
   gamesCarouselOptions: OwlOptions = {}
 
   ngAfterViewInit() {

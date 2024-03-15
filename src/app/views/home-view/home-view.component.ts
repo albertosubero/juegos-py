@@ -15,27 +15,41 @@ import { CategoriesGridComponent } from '../../shared/components/categories-grid
 export class HomeViewComponent {
   newGames: GameModel[] = []
   hotGames: GameModel[] = []
+  isLoading: boolean = false;
 
   constructor(private gamesService: GamesService) {}
 
   ngOnInit() { 
+    this.getNewGames()
+    this.getHotGames()
+  }
+
+  getNewGames() {
+    this.isLoading = true;
     this.gamesService.findGamesByFilters({collection: '4'})
     .subscribe({
       next: (res) => {
         this.newGames = res;
+        this.isLoading = false;
       },
       error: (err) => {
         console.error(err.error);
+        this.isLoading = false;
       }
     });
+  }
 
+  getHotGames() {
+    this.isLoading = true;
     this.gamesService.findGamesByFilters({collection: '3'})
     .subscribe({
       next: (res) => {
         this.hotGames = res;
+        this.isLoading = false;
       },
       error: (err) => {
         console.error(err.error);
+        this.isLoading = false;
       }
     });
   }

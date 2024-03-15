@@ -17,6 +17,7 @@ export class GameViewComponent {
   gameUrl: string = ''
   gameCategory: string = ''
   relatedGames: GameModel[] = []
+  isLoading: boolean = false;
 
   constructor(private route: ActivatedRoute, private gamesService: GamesService) {
     this.gameCategory = this.route.snapshot.params['category']
@@ -28,13 +29,16 @@ export class GameViewComponent {
   }
 
   getRelatedGames() {
+    this.isLoading = true
     this.gamesService.findGamesByFilters({categories: this.gameCategory})
     .subscribe({
       next: (res) => {
-        this.relatedGames = res;
+        this.relatedGames = res
+        this.isLoading = false
       },
       error: (err) => {
-        console.error(err.error);
+        console.error(err.error)
+        this.isLoading = false
       }
     });
   }

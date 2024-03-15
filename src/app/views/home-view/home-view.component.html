@@ -2,11 +2,11 @@
   <section>
     <div class="games-row">
       <h1 class="display-6 pb-3 mb-3 border-bottom text-uppercase">Top Juegos</h1>
-      <app-games-carousel [games]="hotGames" [items]="4" [autoplay]="true" />
+      <app-games-carousel [games]="hotGames" [items]="4" [autoplay]="true" [isLoading]="isLoading" />
     </div>
     <div class="games-row">
       <h1 class="display-6 pb-3 mb-3 border-bottom text-uppercase">Juegos Nuevos</h1>
-      <app-games-carousel [games]="newGames" [items]="6" />
+      <app-games-carousel [games]="newGames" [items]="6" [isLoading]="isLoading" />
     </div>
     <div class="games-row">
       <app-categories-grid />
