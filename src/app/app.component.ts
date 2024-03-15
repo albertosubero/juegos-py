@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 
@@ -12,4 +12,15 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 })
 export class AppComponent {
   title = 'juegos-py';
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.events.subscribe((evt: any) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+    });
+  }
 }
