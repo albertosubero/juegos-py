@@ -4,11 +4,12 @@ import { SafeurlPipe } from '../../shared/pipes/safeurl.pipe';
 import { GamesService } from '../../shared/services/games.service';
 import { GameModel } from '../../shared/models/games';
 import { GamesCarouselComponent } from '../../shared/components/games-carousel/games-carousel.component';
+import { CategoriesGridComponent } from '../../shared/components/categories-grid/categories-grid.component';
 
 @Component({
   selector: 'app-game-view',
   standalone: true,
-  imports: [SafeurlPipe, GamesCarouselComponent],
+  imports: [SafeurlPipe, GamesCarouselComponent, CategoriesGridComponent],
   providers: [GamesService],
   templateUrl: './game-view.component.html',
   styleUrl: './game-view.component.scss'
