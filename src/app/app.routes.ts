@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeViewComponent } from './views/home-view/home-view.component';
 import { GameViewComponent } from './views/game-view/game-view.component';
 import { CategoryViewComponent } from './views/category-view/category-view.component';
+import { SearchResultsViewComponent } from './views/search-results-view/search-results-view.component';
 
 export const routes: Routes = [
   {
@@ -15,5 +16,9 @@ export const routes: Routes = [
   {
     path: 'category/:category_name',
     component: CategoryViewComponent
+  },
+  {
+    path: 'search-game/:keyword',
+    component: SearchResultsViewComponent
   }
 ];

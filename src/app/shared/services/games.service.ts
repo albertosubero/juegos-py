@@ -11,7 +11,7 @@ export class GamesService {
 
   constructor(private http: HttpClient) { }
 
-  findGamesByFilters({collection = 'All', categories = 'All'}) {
-    return this.http.get<GameModel[]>(`${apiUrl}/All/?collection=${collection}&categories=${categories}&tags=All&subType=All&type=All&mobile=All&rewarded=all&amount=10&page=1&format=json`);
+  findGamesByFilters({collection = 'All', categories = 'All', tags = 'All', amount = 10}) {
+    return this.http.get<GameModel[]>(`${apiUrl}/All/?collection=${collection}&categories=${categories}&tags=${tags}&subType=All&type=All&mobile=All&rewarded=all&amount=${amount}&page=1&format=json`);
   }
 }

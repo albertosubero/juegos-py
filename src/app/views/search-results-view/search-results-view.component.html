@@ -1,0 +1,15 @@
+<div class="container">
+  <section>
+    <h1 class="display-6 pb-3 mb-3 border-bottom text-uppercase">Juegos de {{ keyword }}</h1>
+    <div class="games-row row mt-4">
+      @for (game of games; track $index) {
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="card-wrapper mb-4" [routerLink]="['/game/', game.Category[0] ,game.Md5]">
+            <div class="game-poster rounded" [ngStyle]="{'background-image': 'url(' + game.Asset[0] + ')'}"></div>
+            {{ game.Title }}
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+</div>
