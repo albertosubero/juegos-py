@@ -14,6 +14,9 @@ import { CommonModule } from '@angular/common';
 export class CategoryViewComponent {
   gameCategory: string = ''
   games: GameModel[] = []
+  page: number = 1
+  isLoading: boolean = false
+  haveMoreGames: boolean = false
 
   constructor(private route: ActivatedRoute, private gamesService: GamesService) {
     this.gameCategory = this.route.snapshot.params['category_name']
@@ -23,14 +26,29 @@ export class CategoryViewComponent {
     this.getGamesByCategory()
   }
 
-  getGamesByCategory() {
-    this.gamesService.findGamesByFilters({categories: this.gameCategory})
+  getGamesByCategory(page: number = 1) {
+    this.page = page
+    this.isLoading = true
+
+    this.gamesService.findGamesByFilters({categories: this.gameCategory, amount: 9, page})
     .subscribe({
       next: (res) => {
-        this.games = res;
+        if (this.games.length > 0) {
+          if (res.length == 0) {
+            this.haveMoreGames = false
+          } else {
+            this.games = this.games.concat(res)
+            this.haveMoreGames = true
+          }     
+        } else {
+          this.games = res
+          this.haveMoreGames = true
+        }
+        this.isLoading = false
       },
       error: (err) => {
-        console.error(err.error);
+        this.isLoading = false
+        console.error(err.error)
       }
     });
   }
