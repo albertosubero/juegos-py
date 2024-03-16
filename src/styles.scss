@@ -7,6 +7,17 @@ body {
     }
   }
 }
+
+app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+app-footer {
+  margin-top: auto;
+}
+
 section {
   padding: 4rem 0;  
 }
