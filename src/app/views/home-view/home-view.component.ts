@@ -14,6 +14,7 @@ import { CategoriesGridComponent } from '../../shared/components/categories-grid
 })
 export class HomeViewComponent {
   newGames: GameModel[] = []
+  newGames2: GameModel[] = []
   hotGames: GameModel[] = []
   isLoading: boolean = false;
 
@@ -26,10 +27,12 @@ export class HomeViewComponent {
 
   getNewGames() {
     this.isLoading = true;
-    this.gamesService.findGamesByFilters({collection: '4'})
+    this.gamesService.findGamesByFilters({collection: '4', amount: 20})
     .subscribe({
       next: (res) => {
-        this.newGames = res;
+        const half = Math.ceil(res.length / 2);    
+        this.newGames = res.slice(0, half);
+        this.newGames2 = res.slice(half);
         this.isLoading = false;
       },
       error: (err) => {
