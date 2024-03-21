@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SafeurlPipe } from '../../shared/pipes/safeurl.pipe';
 import { GamesService } from '../../shared/services/games.service';
 import { GameModel } from '../../shared/models/games';
@@ -20,9 +20,13 @@ export class GameViewComponent {
   relatedGames: GameModel[] = []
   isLoading: boolean = false;
 
-  constructor(private route: ActivatedRoute, private gamesService: GamesService) {
+  constructor(private route: ActivatedRoute, private router: Router, private gamesService: GamesService) {
     this.gameCategory = this.route.snapshot.params['category']
     this.gameUrl = this.route.snapshot.params['id']
+    this.router.events.subscribe((event) => {
+      this.gameCategory = this.route.snapshot.params['category']
+      this.gameUrl = this.route.snapshot.params['id']
+    })
   }
 
   ngOnInit() {
