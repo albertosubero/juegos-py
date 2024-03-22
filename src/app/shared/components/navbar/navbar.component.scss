@@ -9,3 +9,16 @@ nav {
     margin: 1rem 0;
   }
 }
+
+.nav-link {
+  color: white;
+  &:hover {
+    color: antiquewhite;
+  }
+}
+
+ul {
+  &.nav {
+    background-color: #c200b6;
+  }
+}
