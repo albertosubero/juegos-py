@@ -12,7 +12,7 @@ nav {
 
 .nav-link {
   color: white;
-  &:hover {
+  &:hover, &:focus {
     color: antiquewhite;
   }
 }
