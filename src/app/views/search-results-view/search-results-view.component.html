@@ -21,7 +21,7 @@
       </div>
     }
 
-    @if (games.length == 0) {
+    @if (!isLoading && games.length == 0) {
       <div class="alert alert-info d-flex align-items-center" role="alert">
         <div class="text-center w-100">
           <h2>Oops!, No hay juegos disponibles para su busqueda!</h2>
