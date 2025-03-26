@@ -1,23 +1,63 @@
 <div class="container">
   <section>
     <div class="games-row">
-      <h1 class="display-6 pb-3 mb-3 border-bottom text-uppercase">Top Juegos</h1>
-      <app-games-carousel [games]="hotGames" [items]="4" [autoplay]="true" [isLoading]="isLoading" />
+      <h1 class="display-6 pb-3 mb-3 border-bottom text-uppercase">
+        Top Juegos
+      </h1>
+      <app-games-carousel
+        [games]="hotGames"
+        [items]="4"
+        [autoplay]="true"
+        [isLoading]="isLoading"
+      />
     </div>
     <div class="games-row">
-      <h1 class="display-6 pb-3 mb-3 border-bottom text-uppercase">Juegos Nuevos</h1>
-      <app-games-carousel [games]="newGames" [items]="6" [isLoading]="isLoading" />
-      <app-games-carousel [games]="newGames2" [items]="6" [isLoading]="isLoading" />
+      <h1 class="display-6 pb-3 mb-3 border-bottom text-uppercase">
+        Juegos Nuevos
+      </h1>
+      <app-games-carousel
+        [games]="newGames"
+        [items]="6"
+        [isLoading]="isLoading"
+      />
+      <app-games-carousel
+        [games]="newGames2"
+        [items]="6"
+        [isLoading]="isLoading"
+      />
     </div>
     <div class="games-row">
       <app-categories-grid />
     </div>
-    <hr>
+    <hr />
     <h3 class="mt-4 text-uppercase">JUEGA GRATIS ONLINE EN Juegos.com.py</h3>
-    <br>
-    <p>En Juegos.com.py, puedes disfrutar de una amplia variedad de juegos en línea de manera gratuita, directamente desde tu navegador. Nuestro sitio ofrece entretenimiento para toda la familia, accesible en cualquier dispositivo: computadora, tablet o smartphone. ¡Sumérgete en nuestra extensa colección de juegos!</p>
-    <p>Actualizamos nuestro catálogo diariamente, introduciendo nuevos títulos y asegurándonos de que siempre tengas opciones frescas para explorar. Pensamos en ti y seleccionamos cuidadosamente cada juego para garantizarte diversión continua. Además, recibirás recomendaciones personalizadas para que siempre encuentres algo nuevo para jugar.</p>
-    <p>Explora nuestras categorías más populares y entretenidas, donde podrás elegir entre juegos de aventuras, acción, estrategia, emocionantes Juegos Friv, juegos de cocina y mucho más. Navega por las distintas secciones o utiliza nuestro buscador en la parte superior para encontrar rápidamente el minijuego que desees.</p>
-    <p>Disfruta de tu tiempo de juego cada día y vive experiencias emocionantes llenas de entretenimiento, sin importar tu edad. Siempre encontrarás algo nuevo para jugar, ya que cada día añadimos nuevos títulos para que la diversión nunca termine.</p>
+    <br />
+    <p>
+      En Juegos.com.py, puedes disfrutar de una amplia variedad de juegos en
+      línea de manera gratuita, directamente desde tu navegador. Nuestro sitio
+      ofrece entretenimiento para toda la familia, accesible en cualquier
+      dispositivo: computadora, tablet o smartphone. ¡Sumérgete en nuestra
+      extensa colección de juegos!
+    </p>
+    <p>
+      Actualizamos nuestro catálogo diariamente, introduciendo nuevos títulos y
+      asegurándonos de que siempre tengas opciones frescas para explorar.
+      Pensamos en ti y seleccionamos cuidadosamente cada juego para garantizarte
+      diversión continua. Además, recibirás recomendaciones personalizadas para
+      que siempre encuentres algo nuevo para jugar.
+    </p>
+    <p>
+      Explora nuestras categorías más populares y entretenidas, donde podrás
+      elegir entre juegos de aventuras, acción, estrategia, emocionantes Juegos
+      Friv, juegos de cocina y mucho más. Navega por las distintas secciones o
+      utiliza nuestro buscador en la parte superior para encontrar rápidamente
+      el minijuego que desees.
+    </p>
+    <p>
+      Disfruta de tu tiempo de juego cada día y vive experiencias emocionantes
+      llenas de entretenimiento, sin importar tu edad. Siempre encontrarás algo
+      nuevo para jugar, ya que cada día añadimos nuevos títulos para que la
+      diversión nunca termine.
+    </p>
   </section>
 </div>

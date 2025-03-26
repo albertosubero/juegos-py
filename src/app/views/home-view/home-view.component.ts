@@ -10,42 +10,42 @@ import { CategoriesGridComponent } from '../../shared/components/categories-grid
   imports: [GamesCarouselComponent, CategoriesGridComponent],
   providers: [GamesService],
   templateUrl: './home-view.component.html',
-  styleUrl: './home-view.component.scss'
+  styleUrl: './home-view.component.scss',
 })
 export class HomeViewComponent {
-  newGames: GameModel[] = []
-  newGames2: GameModel[] = []
-  hotGames: GameModel[] = []
+  newGames: GameModel[] = [];
+  newGames2: GameModel[] = [];
+  hotGames: GameModel[] = [];
   isLoading: boolean = false;
 
   constructor(private gamesService: GamesService) {}
 
-  ngOnInit() { 
-    this.getNewGames()
-    this.getHotGames()
+  ngOnInit() {
+    this.getNewGames();
+    this.getHotGames();
   }
 
   getNewGames() {
     this.isLoading = true;
-    this.gamesService.findGamesByFilters({collection: '4', amount: 20})
-    .subscribe({
-      next: (res) => {
-        const half = Math.ceil(res.length / 2);    
-        this.newGames = res.slice(0, half);
-        this.newGames2 = res.slice(half);
-        this.isLoading = false;
-      },
-      error: (err) => {
-        console.error(err.error);
-        this.isLoading = false;
-      }
-    });
+    this.gamesService
+      .findGamesByFilters({ collection: 'All', amount: 40 })
+      .subscribe({
+        next: (res) => {
+          const half = Math.ceil(res.length / 2);
+          this.newGames = res.slice(10, half);
+          this.newGames2 = res.slice(half);
+          this.isLoading = false;
+        },
+        error: (err) => {
+          console.error(err.error);
+          this.isLoading = false;
+        },
+      });
   }
 
   getHotGames() {
     this.isLoading = true;
-    this.gamesService.findGamesByFilters({collection: '3'})
-    .subscribe({
+    this.gamesService.findGamesByFilters({ collection: 'All' }).subscribe({
       next: (res) => {
         this.hotGames = res;
         this.isLoading = false;
@@ -53,7 +53,7 @@ export class HomeViewComponent {
       error: (err) => {
         console.error(err.error);
         this.isLoading = false;
-      }
+      },
     });
   }
 }
